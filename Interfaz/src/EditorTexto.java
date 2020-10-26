@@ -199,37 +199,38 @@ public class EditorTexto {
 		//BOTONES CON IMAGENES
 		
 		btnNewButton = new JButton(""); 	//NUEVO
+		btnNewButton.setToolTipText("Nuevo");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				nuevo(textPane,mntmNewMenuItem);
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\1.png"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\favicon-16x16nuevo.png"));
 		menuBar.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("");	//GUARDAR
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				guardar(textPane);
-			}
-		});
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\2.png"));
-		menuBar.add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton(new DefaultEditorKit.CutAction());		//CORTAR
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\3.png"));
+		JButton btnNewButton_2 = new JButton();		//GUARDAR
+		btnNewButton_2.setToolTipText("Guardar");
+		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\favicon-16x16guard.png"));
 		btnNewButton_2.setText("");
 		menuBar.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton(new DefaultEditorKit.CopyAction());		//COPIAR
-		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\4.png"));
+		btnNewButton_3.setToolTipText("Copiar");
+		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\favicon-16x16111.png"));
 		btnNewButton_3.setText("");
 		menuBar.add(btnNewButton_3);
 		
-		JButton btnNewButton_4 = new JButton(new DefaultEditorKit.PasteAction());		//PEGAR
-		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\5.png"));
+		JButton btnNewButton_4 = new JButton(new DefaultEditorKit.CutAction());		//CORTAR
+		btnNewButton_4.setToolTipText("Cortar");
+		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\favicon-16x16cort.png"));
 		btnNewButton_4.setText("");
 		menuBar.add(btnNewButton_4);
+		
+		JButton btnNewButton_1 = new JButton(new DefaultEditorKit.PasteAction());	//PEGAR
+		btnNewButton_1.setText("");
+		btnNewButton_1.setToolTipText("Pegar");
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\favicon-16x16peg.png"));
+		menuBar.add(btnNewButton_1);
 		
 		
 		
