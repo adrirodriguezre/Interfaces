@@ -34,6 +34,12 @@ import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JPanel;
+import java.awt.FlowLayout;
+import javax.swing.JScrollPane;
+import javax.swing.JScrollBar;
+import javax.swing.JTextArea;
+import javax.swing.JToolBar;
 
 public class EditorTexto {
 
@@ -75,11 +81,62 @@ public class EditorTexto {
 		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
+		JScrollPane scrollPane = new JScrollPane();
+		frame.getContentPane().add(scrollPane);
 		
 		JTextPane textPane = new JTextPane();
+		scrollPane.setViewportView(textPane);
+		
+		JToolBar toolBar = new JToolBar();
+		scrollPane.setColumnHeaderView(toolBar);
+		
+		
 
-		frame.getContentPane().add(textPane, BorderLayout.NORTH);
+		
+		
+		
+		//BOTONES CON IMAGENES
+		
+		//NUEVO
+		btnNewButton = new JButton("");
+		toolBar.add(btnNewButton);
+		btnNewButton.setToolTipText("Nuevo");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(EditorTexto.class.getResource("/img/favicon-16x16nuevo.png")));
+		
+		//GUARDAR
+		JButton btnGuardar = new JButton();
+		toolBar.add(btnGuardar);
+		btnGuardar.setToolTipText("Guardar");
+		btnGuardar.setIcon(new ImageIcon(EditorTexto.class.getResource("/img/favicon-16x16guard.png")));
+		btnGuardar.setText("");
+		
+		//COPIAR
+		JButton btnCopiar = new JButton(new DefaultEditorKit.CopyAction());
+		toolBar.add(btnCopiar);
+		btnCopiar.setToolTipText("Copiar");
+		btnCopiar.setIcon(new ImageIcon(EditorTexto.class.getResource("/img/favicon-16x16111.png")));
+		btnCopiar.setText("");
+		
+		//CORTAR
+		JButton btnCortar = new JButton(new DefaultEditorKit.CutAction());
+		toolBar.add(btnCortar);
+		btnCortar.setToolTipText("Cortar");
+		btnCortar.setIcon(new ImageIcon(EditorTexto.class.getResource("/img/favicon-16x16cort.png")));
+		btnCortar.setText("");
+		
+		//PEGAR
+		JButton btnPegar = new JButton(new DefaultEditorKit.PasteAction());
+		toolBar.add(btnPegar);
+		btnPegar.setText("");
+		btnPegar.setToolTipText("Pegar");
+		btnPegar.setIcon(new ImageIcon(EditorTexto.class.getResource("/img/favicon-16x16peg.png")));
 		
 		
 		//AL PULSAR CERRAR
@@ -192,58 +249,10 @@ public class EditorTexto {
 		mnNewMenu_1.add(mntmNewMenuItem_8);
 		
 		
-
-		
-		
-		
-		//BOTONES CON IMAGENES
-		
-		btnNewButton = new JButton(""); 	//NUEVO
-		btnNewButton.setToolTipText("Nuevo");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				nuevo(textPane,mntmNewMenuItem);
-			}
-		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\favicon-16x16nuevo.png"));
-		menuBar.add(btnNewButton);
-		
-		JButton btnNewButton_2 = new JButton();		//GUARDAR
-		btnNewButton_2.setToolTipText("Guardar");
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\favicon-16x16guard.png"));
-		btnNewButton_2.setText("");
-		menuBar.add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton(new DefaultEditorKit.CopyAction());		//COPIAR
-		btnNewButton_3.setToolTipText("Copiar");
-		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\favicon-16x16111.png"));
-		btnNewButton_3.setText("");
-		menuBar.add(btnNewButton_3);
-		
-		JButton btnNewButton_4 = new JButton(new DefaultEditorKit.CutAction());		//CORTAR
-		btnNewButton_4.setToolTipText("Cortar");
-		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\favicon-16x16cort.png"));
-		btnNewButton_4.setText("");
-		menuBar.add(btnNewButton_4);
-		
-		JButton btnNewButton_1 = new JButton(new DefaultEditorKit.PasteAction());	//PEGAR
-		btnNewButton_1.setText("");
-		btnNewButton_1.setToolTipText("Pegar");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\PC33\\Pictures\\favicon-16x16peg.png"));
-		menuBar.add(btnNewButton_1);
-		
-		
 		
 	}
 	
-	
-	/**
-	 * MÉTODOS
-	 */
-	
-	
-	
-	
+	//MÉTODOS
 	
 	//método para guardar
 	
